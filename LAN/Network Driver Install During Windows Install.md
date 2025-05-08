@@ -34,9 +34,18 @@ If you have the `.INF` or extracted driver files, you may skip Step 4 and procee
 
 
 ### 6. Load Driver During Windows Installation
+* Standard Method: On the network connection screen, you may see an “Install Driver” button.
+  * Insert the USB drive containing the extracted driver files.
+  * Click “Install Driver.”
+  * In the file browser that appears, navigate to the folder where the `.INF` driver files are located.
+  * Windows will then automatically detect and install the appropriate network driver.
+  * Once the correct driver is loaded, your network adapter should appear, and the setup will allow you to connect to a network.
 
-
-
-
-5. During Windows Installation (When Drivers Missing)
-6.  If Windows Still Can’t Detect It
+* Alternative Method: If the “Install Driver” option does not appear:
+  * Press **Shift + F10** to open Command Prompt.
+  * Type `devmgmt.msc` and press Enter to open Device Manager.
+  * In Device Manager, locate **“Network Adapters”** or any **“Unknown Devices”** (often with a yellow warning icon).
+  * Right-click the device and select **“Update driver”**.
+  * Choose **“Browse my computer for drivers”,** then select the USB folder where the drivers are located.
+  * Complete the installation and close all windows.
+  * Continue with the Windows setup once the network is available.
