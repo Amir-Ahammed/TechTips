@@ -96,7 +96,7 @@ Managing who gets access to **what**, **when**, and **how** is critical to maint
 
 ---
 
-### 🔁 Example: Secure App + Device Access for Fatima
+### 🔁 Example: Secure App + Device Access
 
 > 🔄 Amir joins the **Design Team**  
 > - Added to `DesignTeam-O365` and `AdobeCloud-Users` groups  
