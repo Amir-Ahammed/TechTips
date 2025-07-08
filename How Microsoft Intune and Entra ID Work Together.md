@@ -31,6 +31,22 @@ Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intun
 | **Compliance Monitoring** | N/A | Tracks device health, patch status, and encryption |
 
 ---
+## 3. App Access Request – Office 365 or Adobe Licensing
+
+### Scenario: User Requests Access to Microsoft 365 or Adobe
+
+| Step | Entra ID | Intune |
+|------|----------|--------|
+| **App Request Workflow** | User submits request via internal portal or Self-Service | N/A |
+| **Group Membership** | Approved users are added to relevant group (e.g., `O365-License`, `Adobe-Entitlement`) | Group triggers app assignment |
+| **License Assignment** | Entra ID applies license via group-based licensing rules | Activates product entitlement (e.g., M365 E3 or Adobe Creative Cloud) |
+| **App Installation** | N/A | Intune pushes app package to user device (Office Apps or Adobe Installer via Win32 deployment) |
+| **Activation** | User logs in with Entra ID credentials | App activates using assigned license |
+
+> **Example:**  
+> Amir requests Adobe Illustrator access → Approved → Added to `Adobe-Creative-Team` group → License is auto-assigned → Intune installs the app silently → Ready to use upon next login.
+
+---
 
 ## 3. Mover Phase – Role or Department Change
 
@@ -65,4 +81,35 @@ Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intun
 > **Tagline:** One identity. One device. Total control.
 
 ---
+## Access Management with Entra ID + Intune
+
+Managing who gets access to **what**, **when**, and **how** is critical to maintaining a secure IT environment. Here's how access management is handled seamlessly using Entra ID and Intune.
+
+---
+
+### Key Access Control Components
+
+| Component | Entra ID Role | Intune Role |
+|-----------|---------------|-------------|
+| **Group-Based Access** | Manages access to M365, SaaS apps, files, and systems via security group membership | Deploys apps and config policies based on group membership |
+| **Role-Based Access Control (RBAC)** | Grants admin roles (e.g., User Admin, Security Admin) based on least privilege | Assigns scoped admin access to manage specific devices or workloads |
+| **Conditional Access (CA)** | Enforces access based on conditions like device state, location, risk level, compliance | Blocks/Allows access only from compliant, managed devices |
+| **Privileged Identity Management (PIM)** | Provides just-in-time access to high-privilege roles with audit trails | N/A |
+| **Self-Service Access (SSPR & Group Join)** | Users can request or join groups via access packages | Triggers app/license assignment and policy enforcement via group logic |
+
+---
+
+### 🔁 Example: Secure App + Device Access for Fatima
+
+> 🔄 Amir joins the **Design Team**  
+> - Added to `DesignTeam-O365` and `AdobeCloud-Users` groups  
+> - Gains access to SharePoint, Teams, Photoshop, Illustrator, etc...
+> - Conditional Access ensures her laptop is Intune-compliant before allowing access  
+> - Office and Adobe apps are installed silently via Intune  
+> - Amir requests temporary access to a Power BI report — approved through **PIM**  
+> - Access expires automatically after 7 days
+
+---
+
+
 
