@@ -31,6 +31,7 @@ Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intun
 | **Compliance Monitoring** | N/A | Tracks device health, patch status, and encryption |
 
 ---
+
 ## 3. App Access Request – Office 365 or Adobe Licensing
 
 ### Scenario: User Requests Access to Microsoft 365 or Adobe
@@ -48,7 +49,7 @@ Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intun
 
 ---
 
-## 3. Mover Phase – Role or Department Change
+## 4. Mover Phase – Role or Department Change
 
 | Scenario | Entra ID | Intune |
 |----------|----------|--------|
@@ -59,7 +60,7 @@ Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intun
 
 ---
 
-## 4. Leaver Phase – Offboarding
+## 5. Leaver Phase – Offboarding
 
 | Step | Entra ID | Intune |
 |------|----------|--------|
@@ -85,10 +86,6 @@ Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intun
 
 Managing who gets access to **what**, **when**, and **how** is critical to maintaining a secure IT environment. Here's how access management is handled seamlessly using Entra ID and Intune.
 
----
-
-### Key Access Control Components
-
 | Component | Entra ID Role | Intune Role |
 |-----------|---------------|-------------|
 | **Group-Based Access** | Manages access to M365, SaaS apps, files, and systems via security group membership | Deploys apps and config policies based on group membership |
@@ -110,6 +107,7 @@ Managing who gets access to **what**, **when**, and **how** is critical to maint
 > - Access expires automatically after 7 days
 
 ---
+
 
 
 
