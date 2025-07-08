@@ -1,16 +1,15 @@
-# 🚀 How Microsoft Intune and Entra ID Work Together: A-Z User Lifecycle Example
-
+# How Microsoft Intune and Entra ID Work Together: A-Z User Lifecycle Example
 This guide breaks down how Microsoft **Entra ID** (identity and access control) and **Microsoft Intune** (device and app management) work together to support an employee throughout their entire lifecycle—from onboarding to offboarding.
 
 ---
 
-## 👩‍💼 Meet Fatima – New Hire at Contoso Ltd.
+## Meet Amir – New Hire at XYZ Ltd.
 
-Let’s walk through her journey from Day 1 to Exit, powered by Entra ID + Intune automation.
+Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intune automation.
 
 ---
 
-## 🟢 1. Joiner Phase – New User Onboarding
+## 1. Joiner Phase – New User Onboarding
 
 | Step | Entra ID | Intune |
 |------|----------|--------|
@@ -22,7 +21,7 @@ Let’s walk through her journey from Day 1 to Exit, powered by Entra ID + Intun
 
 ---
 
-## 💻 2. Device Enrollment & Configuration
+## 2. Device Enrollment & Configuration
 
 | Step | Entra ID | Intune |
 |------|----------|--------|
@@ -33,7 +32,7 @@ Let’s walk through her journey from Day 1 to Exit, powered by Entra ID + Intun
 
 ---
 
-## 🔄 3. Mover Phase – Role or Department Change
+## 3. Mover Phase – Role or Department Change
 
 | Scenario | Entra ID | Intune |
 |----------|----------|--------|
@@ -44,7 +43,7 @@ Let’s walk through her journey from Day 1 to Exit, powered by Entra ID + Intun
 
 ---
 
-## 🔴 4. Leaver Phase – Offboarding
+## 4. Leaver Phase – Offboarding
 
 | Step | Entra ID | Intune |
 |------|----------|--------|
@@ -55,7 +54,7 @@ Let’s walk through her journey from Day 1 to Exit, powered by Entra ID + Intun
 
 ---
 
-## 🧠 Summary: Why Entra ID + Intune Are Better Together
+## Summary: Why Entra ID + Intune Are Better Together
 
 - ✅ **Zero-touch provisioning** with Autopilot + Entra join
 - 🔐 **Secured identity** with conditional access & MFA
