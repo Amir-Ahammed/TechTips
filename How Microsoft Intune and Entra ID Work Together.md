@@ -71,7 +71,7 @@ Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intun
 
 ---
 
-## Summary: Why Entra ID + Intune Are Better Together
+## Why Entra ID + Intune Are Better Together
 
 - ✅ **Zero-touch provisioning** with Autopilot + Entra join
 - 🔐 **Secured identity** with conditional access & MFA
