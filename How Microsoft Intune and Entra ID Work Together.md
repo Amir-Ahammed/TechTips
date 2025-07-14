@@ -82,65 +82,43 @@ Let’s walk through his journey from Day 1 to Exit, powered by Entra ID + Intun
 > **Tagline:** One identity. One device. Total control.
 
 ---
-## Access Management with Entra ID + Intune
 
-Managing who gets access to **what**, **when**, and **how** is critical to maintaining a secure IT environment. Here's how access management is handled seamlessly using Entra ID and Intune.
+## 👤 Centralized User Creation in Entra ID: Unlocking Access & Automation
 
-| Component | Entra ID Role | Intune Role |
-|-----------|---------------|-------------|
-| **Group-Based Access** | Manages access to M365, SaaS apps, files, and systems via security group membership | Deploys apps and config policies based on group membership |
-| **Role-Based Access Control (RBAC)** | Grants admin roles (e.g., User Admin, Security Admin) based on least privilege | Assigns scoped admin access to manage specific devices or workloads |
-| **Conditional Access (CA)** | Enforces access based on conditions like device state, location, risk level, compliance | Blocks/Allows access only from compliant, managed devices |
-| **Privileged Identity Management (PIM)** | Provides just-in-time access to high-privilege roles with audit trails | N/A |
-| **Self-Service Access (SSPR & Group Join)** | Users can request or join groups via access packages | Triggers app/license assignment and policy enforcement via group logic |
+Creating a user in **Microsoft Entra ID** triggers a cascade of access provisioning across your identity, device, and application landscape. This central identity becomes the backbone of secure onboarding, app access, and device compliance.
 
 ---
 
-### Example: Secure App + Device Access
+### What Happens When You Create a User in Entra ID
 
-> - Amir joins the **Design Team**  
-> - Added to `DesignTeam-O365` and `AdobeCloud-Users` groups  
-> - Gains access to SharePoint, Teams, Photoshop, Illustrator, etc...
-> - Conditional Access ensures her laptop is Intune-compliant before allowing access  
-> - Office and Adobe apps are installed silently via Intune  
-> - Amir requests temporary access to a Power BI report — approved through **PIM**  
-> - Access expires automatically after 7 days
-
----
-## ☁️ Azure's Role in Endpoint & Identity Lifecycle
-While Microsoft **Intune** handles device management and **Entra ID** governs identity, **Azure** is the cloud engine powering everything behind the scenes. It enables automation, scalability, and security throughout the user lifecycle.
+| Stage | Action | Result |
+|-------|--------|--------|
+| **Identity Setup** | User account created in Entra ID | Centralized identity object is registered |
+| **Group Assignment** | Assigned to security groups (`SlackUsers`, `ZoomLicensed`, etc.) | Triggers license provisioning and app access |
+| **SCIM Provisioning** | Entra ID syncs user to SaaS apps via SCIM (Zoom, Slack, GSuite, SailPoint) | Accounts are automatically created and updated |
+| **SSO Enablement** | Apps configured for SAML/OIDC with Entra ID as IdP | User logs into apps seamlessly using one identity |
+| **Device Enrollment (Optional)** | Device is Azure AD Joined | Intune auto-enrolls and pushes compliance policies |
+| **Conditional Access** | Azure evaluates risk and device compliance | Access allowed only from trusted devices |
+| **Audit & Governance** | Access logs captured in Azure Monitor | Ensures compliance and lifecycle tracking |
 
 ---
 
-### Key Responsibilities of Azure
+### Example Flow
 
-| Feature | Description |
-|--------|-------------|
-| **Azure AD Join** | Devices join Entra ID through Azure, enabling automatic Intune enrollment |
-| **MDM Auto-Enrollment** | Azure defines MDM scopes to ensure seamless onboarding into Intune |
-| **Conditional Access Enforcement** | Evaluates Entra ID signals + Intune compliance before granting access |
-| **Privileged Identity Management (PIM)** | Allows secure, just-in-time elevation for admin roles with audit logs |
-| **Role-Based Access Control (RBAC)** | Assigns granular permissions across Intune and Entra ID workloads |
-| **Audit Logging & Monitoring** | Tracks device actions, access changes, and identity updates for compliance |
-| **Infrastructure Resilience** | Azure ensures global availability, scalability, and security posture |
-| **Azure App Proxy** | Provides secure access to internal apps without VPN dependency |
+> 👤 Amir is created in Entra ID  
+> – Assigned to `Marketing-GSuite`, `SlackUsers`, `ZoomLicensed` groups  
+> – GSuite account provisioned → Gmail, Drive, Calendar activated  
+> – Slack and Zoom accounts created → Apps deployed to device via Intune  
+> – Device joins Azure AD → Intune applies security policies  
+> – Entra ID enables SSO → user logs in without separate credentials  
+> – Azure enforces Conditional Access → access gated by risk and device trust  
+> – Logs captured for audit → SailPoint monitors access lifecycle
 
 ---
 
-### Example: Device Setup via Azure
+> **Tagline:** One identity. Automated provisioning. Trusted access — powered by Entra ID at the center.
 
-> - Amir receives a laptop  
-> - Signs in → Azure AD Join (via Entra ID)  
-> - Device auto-enrolled into Intune  
-> - Azure evaluates compliance signals and applies Conditional Access  
-> - RBAC and PIM used by IT for admin tasks  
-> - Azure logs all activities for audit  
-
----
-
-> **Tagline:** Azure is the glue—connecting identities, devices, and policies with global cloud power.
-
-## 🧩 Identity & App Lifecycle Flow: Entra ID + Intune + Azure + SaaS Apps
+## Identity & App Lifecycle Flow: Entra ID + Intune + Azure + SaaS Apps
 
 ```mermaid
 flowchart TD
@@ -177,6 +155,69 @@ flowchart TD
         J
     end
 ```
+---
+
+## ☁️ Azure's Role in Endpoint & Identity Lifecycle
+While Microsoft **Intune** handles device management and **Entra ID** governs identity, **Azure** is the cloud engine powering everything behind the scenes. It enables automation, scalability, and security throughout the user lifecycle.
+
+---
+
+### Key Responsibilities of Azure
+
+| Feature | Description |
+|--------|-------------|
+| **Azure AD Join** | Devices join Entra ID through Azure, enabling automatic Intune enrollment |
+| **MDM Auto-Enrollment** | Azure defines MDM scopes to ensure seamless onboarding into Intune |
+| **Conditional Access Enforcement** | Evaluates Entra ID signals + Intune compliance before granting access |
+| **Privileged Identity Management (PIM)** | Allows secure, just-in-time elevation for admin roles with audit logs |
+| **Role-Based Access Control (RBAC)** | Assigns granular permissions across Intune and Entra ID workloads |
+| **Audit Logging & Monitoring** | Tracks device actions, access changes, and identity updates for compliance |
+| **Infrastructure Resilience** | Azure ensures global availability, scalability, and security posture |
+| **Azure App Proxy** | Provides secure access to internal apps without VPN dependency |
+
+---
+
+### Example: Device Setup via Azure
+
+> - Amir receives a laptop  
+> - Signs in → Azure AD Join (via Entra ID)  
+> - Device auto-enrolled into Intune  
+> - Azure evaluates compliance signals and applies Conditional Access  
+> - RBAC and PIM used by IT for admin tasks  
+> - Azure logs all activities for audit  
+
+---
+
+> **Tagline:** Azure is the glue—connecting identities, devices, and policies with global cloud power.
+
+## Access Management with Entra ID + Intune
+
+Managing who gets access to **what**, **when**, and **how** is critical to maintaining a secure IT environment. Here's how access management is handled seamlessly using Entra ID and Intune.
+
+| Component | Entra ID Role | Intune Role |
+|-----------|---------------|-------------|
+| **Group-Based Access** | Manages access to M365, SaaS apps, files, and systems via security group membership | Deploys apps and config policies based on group membership |
+| **Role-Based Access Control (RBAC)** | Grants admin roles (e.g., User Admin, Security Admin) based on least privilege | Assigns scoped admin access to manage specific devices or workloads |
+| **Conditional Access (CA)** | Enforces access based on conditions like device state, location, risk level, compliance | Blocks/Allows access only from compliant, managed devices |
+| **Privileged Identity Management (PIM)** | Provides just-in-time access to high-privilege roles with audit trails | N/A |
+| **Self-Service Access (SSPR & Group Join)** | Users can request or join groups via access packages | Triggers app/license assignment and policy enforcement via group logic |
+
+---
+
+### Example: Secure App + Device Access
+
+> - Amir joins the **Design Team**  
+> - Added to `DesignTeam-O365` and `AdobeCloud-Users` groups  
+> - Gains access to SharePoint, Teams, Photoshop, Illustrator, etc...
+> - Conditional Access ensures her laptop is Intune-compliant before allowing access  
+> - Office and Adobe apps are installed silently via Intune  
+> - Amir requests temporary access to a Power BI report — approved through **PIM**  
+> - Access expires automatically after 7 days
+
+
+---
+
+
 
 ## 🏢 Enterprise Application Management with Entra ID, Azure & Intune
 
@@ -490,37 +531,4 @@ SailPoint IdentityIQ (IIQ) provides robust identity governance and lifecycle man
 
 > **Tagline:** SailPoint IIQ + Microsoft Cloud = End-to-end identity governance with secure access and device trust.
 
-## 👤 Centralized User Creation in Entra ID: Unlocking Access & Automation
 
-Creating a user in **Microsoft Entra ID** triggers a cascade of access provisioning across your identity, device, and application landscape. This central identity becomes the backbone of secure onboarding, app access, and device compliance.
-
----
-
-### ✅ What Happens When You Create a User in Entra ID
-
-| Stage | Action | Result |
-|-------|--------|--------|
-| **Identity Setup** | User account created in Entra ID | Centralized identity object is registered |
-| **Group Assignment** | Assigned to security groups (`SlackUsers`, `ZoomLicensed`, etc.) | Triggers license provisioning and app access |
-| **SCIM Provisioning** | Entra ID syncs user to SaaS apps via SCIM (Zoom, Slack, GSuite, SailPoint) | Accounts are automatically created and updated |
-| **SSO Enablement** | Apps configured for SAML/OIDC with Entra ID as IdP | User logs into apps seamlessly using one identity |
-| **Device Enrollment (Optional)** | Device is Azure AD Joined | Intune auto-enrolls and pushes compliance policies |
-| **Conditional Access** | Azure evaluates risk and device compliance | Access allowed only from trusted devices |
-| **Audit & Governance** | Access logs captured in Azure Monitor | Ensures compliance and lifecycle tracking |
-
----
-
-### 🔁 Example Flow
-
-> 👤 Amir is created in Entra ID  
-> – Assigned to `Marketing-GSuite`, `SlackUsers`, `ZoomLicensed` groups  
-> – GSuite account provisioned → Gmail, Drive, Calendar activated  
-> – Slack and Zoom accounts created → Apps deployed to device via Intune  
-> – Device joins Azure AD → Intune applies security policies  
-> – Entra ID enables SSO → user logs in without separate credentials  
-> – Azure enforces Conditional Access → access gated by risk and device trust  
-> – Logs captured for audit → SailPoint monitors access lifecycle
-
----
-
-> **Tagline:** One identity. Automated provisioning. Trusted access — powered by Entra ID at the center.
