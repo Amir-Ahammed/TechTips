@@ -140,6 +140,40 @@ While Microsoft **Intune** handles device management and **Entra ID** governs id
 
 > **Tagline:** Azure is the glue—connecting identities, devices, and policies with global cloud power.
 
+## 🧩 Identity & App Lifecycle Flow: Entra ID + Intune + Azure + SaaS Apps
+
+```mermaid
+flowchart TD
+    A[New Hire Created in Entra ID] --> B[Group Assignment & License Provisioning]
+    B --> C[Device Azure AD Join via Autopilot]
+    C --> D[Intune Auto-Enroll & Policy Push]
+    D --> E[Conditional Access Evaluation (Azure)]
+    E --> F[SSO Access to Apps (Zoom, Slack, GSuite, Okta, SailPoint)]
+    F --> G[App Deployment via Intune (Zoom, Slack)]
+    G --> H[Audit Logging & Monitoring (Azure)]
+    H --> I[Role Change → Group Update → App Access Adjusted]
+    I --> J[Offboarding → Account Disabled in Entra ID]
+    J --> K[Remote Wipe via Intune + Access Revoked]
 
 
+    subgraph SaaS Apps
+        F
+    end
 
+    subgraph Azure Services
+        E
+        H
+    end
+
+    subgraph Intune
+        C
+        D
+        G
+        K
+    end
+
+    subgraph Entra ID
+        A
+        B
+        J
+    end
