@@ -144,17 +144,16 @@ While Microsoft **Intune** handles device management and **Entra ID** governs id
 
 ```mermaid
 flowchart TD
-    A[New Hire Created in Entra ID] --> B[Group Assignment & License Provisioning]
+    A[New Hire Created in Entra ID] --> B[Group Assignment and License Provisioning]
     B --> C[Device Azure AD Join via Autopilot]
-    C --> D[Intune Auto-Enroll & Policy Push]
-    D --> E[Conditional Access Evaluation (Azure)]
-    E --> F[SSO Access to Apps (Zoom, Slack, GSuite, Okta, SailPoint)]
-    F --> G[App Deployment via Intune (Zoom, Slack)]
-    G --> H[Audit Logging & Monitoring (Azure)]
-    H --> I[Role Change → Group Update → App Access Adjusted]
-    I --> J[Offboarding → Account Disabled in Entra ID]
-    J --> K[Remote Wipe via Intune + Access Revoked]
-
+    C --> D[Intune Auto-Enroll and Policy Push]
+    D --> E[Conditional Access Evaluation via Azure]
+    E --> F[Access Apps: Zoom, Slack, GSuite, Okta, SailPoint]
+    F --> G[App Deployment via Intune]
+    G --> H[Audit Logging and Monitoring]
+    H --> I[Role Change – Group Update – App Access Adjusted]
+    I --> J[Offboarding – Account Disabled in Entra ID]
+    J --> K[Remote Wipe via Intune and Access Revoked]
 
     subgraph SaaS Apps
         F
