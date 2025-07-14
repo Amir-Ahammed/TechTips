@@ -1,4 +1,4 @@
-# How Microsoft Intune and Entra ID Work Together: A-Z User Lifecycle Example
+# 🧭 How Microsoft Intune and Entra ID Work Together: A-Z User Lifecycle Example
 This guide breaks down how Microsoft **Entra ID** (identity and access control) and **Microsoft Intune** (device and app management) work together to support an employee throughout their entire lifecycle—from onboarding to offboarding.
 
 ---
@@ -107,7 +107,7 @@ Managing who gets access to **what**, **when**, and **how** is critical to maint
 > - Access expires automatically after 7 days
 
 ---
-## Azure's Role in Endpoint & Identity Lifecycle
+## ☁️ Azure's Role in Endpoint & Identity Lifecycle
 While Microsoft **Intune** handles device management and **Entra ID** governs identity, **Azure** is the cloud engine powering everything behind the scenes. It enables automation, scalability, and security throughout the user lifecycle.
 
 ---
